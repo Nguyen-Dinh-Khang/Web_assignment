@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- UTF-8 allows me to use Vietnamese and viewport can make this html file show on the entire screen's width with 1=1 scale-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <!-- I name this site 'CV' -->
+</head>
+<!-- I make a border to helf us see this CV more clearly -->
+<body style="border: 3px solid black;
+             width: 500px;
+             height: 707px;
+             display: flex"> <!-- I set it flex to make these two blocks lie linearly-->
+    <!-- I separate this CV into 2 part, this one is my persional infomation -->
+    <div style="width: 30%;
+                height: 100%;
+                border-right: 2px solid black;
+                background-color: rgb(43, 45, 43);
+                color: white"> <!-- because the background color is black so I make words white -->
+        <!-- this is my ID photo and i try to align it in the center, with a slight border to make it easy to see the ID photo -->
+        <img src="img/Ảnh.jpg"
+            style="height: 25%;
+                   margin: 9px 0px 0px 9px;
+                   border: 1px solid black;">
+        
+        <!-- I use p tab to make some texts and I set their size to fit with this column -->
+        <p style="font-size: small;">Name: Nguyễn Đình Khang</p>
+        <p style="font-size: small;">ID: 24560041</p>
+        <p style="font-size: small;">Email: 24560041@gm.uit.edu.vn</p>
+    </div>
+
+    <!-- this one is my study infomation -->
+    <div style="width: 70%;
+                height: 100%;">
+        <!-- I make this header by using h1 tab to make this word bigger instead of using font-size -->
+        <header><h1 style="margin-left: 155px">CV</h1></header>
+
+        <!-- I create two list to show detail about my study in university and my skills -->
+        <section> <!-- I use section and article tab to group the infomation into some parts-->
+            <article>
+                <h4 style="margin: 0px 5px; 
+                        ">School:</h4>       <!-- I use h4 tab to make this word's size bigger than that of the lists -->
+                <ul style="font-size:small">    <!-- I use this small size just for beauty -->
+                    <li>Name: UIT</li>
+                    <li>Major: computer science</li>    <!-- Showing infomation by using li tab-->
+                    <li>Academic year: 2024-2029</li>
+                </ul>
+            </article>
+            <article>
+                <h4 style="margin: 0px 5px;
+                        ">My skills:</h4>
+                <ul style="font-size:small">
+                    <li>Soft skills: teamwork, ...</li>
+                    <li>Programming language: python, C++</li>
+                    <li>Framework: Django, FastAPI</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- I create a table to show my study before I graduate a university -->
+        <table style="border: 2px solid black;
+                      border-collapse: collapse;
+                      margin-left: 5px"> <!-- I set the layout of this table. I use collapse to make the borders lying next to each other merge-->
+            <tr> <!-- I use tr tab to separate this table into line by line -->
+                <th style="border: 2px solid black">Year</th> <!-- using th tab to bald the word, making it a speacial row-->
+                <th style="border: 2px solid black;
+                           width: 260px">School name</th> <!-- I set this width to fit this frame -->
+            </tr> 
+            <tr>
+                <td style="border: 2px solid black">2012-2017</td> <!-- td tab to write my history as a normal text form -->
+                <td style="border: 2px solid black">------</td> <!-- I set border to all of them and use collapse to merge these borders -->
+            </tr>
+            <tr>
+                <td style="border: 2px solid black">2017-2021</td>
+                <td style="border: 2px solid black">------</td>
+            </tr>
+            <tr>
+                <td style="border: 2px solid black">2021-2024</td>
+                <td style="border: 2px solid black">------</td>
+            </tr>
+        </table>
+
+        <!-- I just make this div tab to push a footer tab to the end of this application -->
+        <div style="height: 315px"></div>
+
+        <!-- I use the footer tab to end this CV -->
+        <footer style="text-align: center;">
+            <h6>Nguyễn Đình Khang</h6>
+        </footer>
+    </div>
+</body>
+</html>
