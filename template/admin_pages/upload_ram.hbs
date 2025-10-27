@@ -1,0 +1,56 @@
+<div class="upload upload_device ram">
+    <div class="upload_box">
+        <p class="upload_title">RAM</p>
+
+        <div class="line"></div>
+                
+        <form action="/uploadram" method="POST" class="upload_list" enctype="multipart/form-data">
+            <div class="upload_input">
+                <div class="upload_data">
+                    <span class="upload_data_label">Name:</span>
+                    <input type="text" name="ram_name" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Image:</span>
+                    <input type="file" name="ram_img_file" class="upload_data_input no_border">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Capacity:</span>
+                    <input type="text" name="capacity" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Speed:</span>
+                    <input type="text" name="speed" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Type:</span>
+                    <select name="type" class="upload_data_input">
+                        <option disabled selected></option>
+                        <option>DDR4</option>
+                        <option>DDR5</option>
+                        <option>LPDDR4X</option>
+                        <option>LPDDR5</option>
+                    </select>
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Manufacturer:</span>
+                    <select name="manufacturer" class="upload_data_input">
+                        <option disabled selected></option>
+                        <option>Kingston</option>
+                        <option>Corsair</option>
+                        <option value="G_Skill">G.Skill</option>
+                        <option>Hynix</option>
+                        <option>Micron</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="upload_btn">Create</button>
+        </form>
+    </div>
+</div>

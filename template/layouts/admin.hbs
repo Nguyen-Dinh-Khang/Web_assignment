@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/my_css/default.css">
+    <link rel="stylesheet" href="/static/my_css/main_layout.css">
+    <link rel="stylesheet" href="/static/my_css/sub_layout.css">
+    <link rel="stylesheet" href="/static/my_css/main_site.css">
+    <link rel="stylesheet" href="/static/my_css/sub_site.css">
+</head>
+<body style="background-color: #e9e9e9;">
+
+<div class="container-fluid fixed-top">
+    <div class="row p-2" style="background-image: linear-gradient(to bottom, #000000, #464646)">
+        <div class="col-1">
+            <a href="/">
+            <img src="/static/img/web icon.png" alt="Lỗi rồi" style="height: 60px; border-radius: 50%;">
+            </a>
+        </div>
+        <div class="col-9 d-flex justify-content-center align-self-center text-light" style="padding-left: 120px;">
+            <h1>Computer search website</h1>
+        </div>
+        <div class="col-2 d-flex justify-content-end align-self-center">
+            {{#if user}}
+                <form method="POST" action="/logout">
+                <button type="submit" class="btn btn-light">logout</button>
+                </form>
+            {{else}}
+                <a href="/signup">
+                <button class="btn btn-light me-1">sign up</button>
+                </a>
+
+                <a href="/login">
+                <button class="btn btn-light">login</button>
+                </a>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex align-item-center justify-content-between" style="background-color: #505050;">
+            <ul class="nav__list">
+                <a href="/laptop" class="nav__list__item">
+                    <span>Search laptop</span>                    
+                </a>
+                <a href="/shop" class="nav__list__item">
+                    <span>Shop</span>
+                </a>
+                <a href="/offer" class="nav__list__item">
+                    <span>Offer</span>
+                </a>
+                <a href="/component" class="nav__list__item">
+                    <span>Technology info</span>
+                </a>
+            </ul>
+            <ul class="nav__list">
+                {{#if user}}
+                    {{#if_eq user.role 'staff'}}
+                        <a href="myshop" class="nav__list__item special">
+                            <span>My Shop</span>
+                        </a>
+                    {{/if_eq}}
+                    {{#if_eq user.role 'admin'}}
+                        <a href="/adminsite" class="nav__list__item special">
+                            <span>Admin</span>
+                        </a>
+                    {{/if_eq}}
+                {{/if}} 
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 120px;">
+<div class="admin">
+    <div class="col-1 function">
+        <ul class="function__list">
+            <li class="function__update">
+                <span class="update__text">Upload:</span>
+                <ul class="update__box">
+                    <a href="/uploadshop"   class="update__choice"><li class="update__box__item">Shop</li></a>
+                    <a href="/uploadlaptop" class="update__choice"><li class="update__box__item">Laptop</li></a>
+                    <a href="/uploadram"    class="update__choice"><li class="update__box__item">Ram</li></a>
+                    <a href="/uploadcpu"    class="update__choice"><li class="update__box__item">Cpu</li></a>
+                    <a href="/uploadgpu"    class="update__choice"><li class="update__box__item">Gpu</li></a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-11 show">
+        
+        {{{body}}}
+
+    </div>
+</div>    
+</div>
+
+</body>
+</html>

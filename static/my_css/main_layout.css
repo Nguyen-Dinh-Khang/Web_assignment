@@ -1,0 +1,90 @@
+/* Main layout */
+.nav__list {
+    padding: 0px 40px;
+    margin: 5px 0px;
+    text-decoration: None;
+    list-style: None;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.nav__list__item {
+    padding: 5px;
+    text-decoration: None;
+    color: rgb(233, 233, 233);
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(85, 85, 85);
+}
+
+.nav__list__item:hover{
+    opacity: 0.7;
+}
+
+.nav__list__item:focus{
+    background-color: rgb(60, 60, 60);
+    color: white;
+}
+
+.nav__list .nav__list__item + .nav__list__item{
+    margin-left: 20px;
+}
+
+.nav__list .special{
+    text-align: end;
+}
+
+
+
+
+/* Admin layout */
+.admin .function{
+    background-color: rgb(153, 153, 153);
+    height: 618px;
+    position: fixed;
+}
+
+.admin .show{
+    margin-left: 126px;
+}
+
+.admin .function__list{
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin .function__update{
+    width: 100%;
+    margin: 20px 0px;
+    padding: 10px 0px;
+}
+
+.admin .update__text{
+    margin-left: 10px;
+    font-size: large;
+    font-weight: 800;
+    text-align: start;
+}
+
+.admin .update__box{
+    margin-left: 6px;
+    display: block;
+}
+
+.admin .update__box__item{
+    padding: 3px 0px;
+}
+
+.admin .update__choice{
+    text-decoration: none;
+    color: black;
+}
+
+.admin .update__choice:hover{
+    opacity: 0.5;
+}

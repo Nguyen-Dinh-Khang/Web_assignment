@@ -1,0 +1,75 @@
+<div class="upload upload_device">
+<div class="upload_box">
+    <p class="upload_title">Laptop</p>
+
+    <div class="line"></div>
+                
+    <form action="/uploadlaptop" method="POST" class="upload_list" enctype="multipart/form-data">
+        <div class="upload_input">
+            <div class="upload_data">
+                <span class="upload_data_label">Name:</span>
+                <input type="text" name="laptop_name" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">&nbsp;Image:</span>
+                <input type="file" name="laptop_img_file" class="upload_data_input no_border">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">Storage:</span>
+                <input type="text" name="storage" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">&nbsp;RAM:</span>
+                <input type="text" name="ram" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">CPU:</span>
+                <input type="text" name="cpu" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">&nbsp;GPU:</span>
+                <input type="text" name="gpu" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">Screen_size:</span>
+                <input type="text" name="screen_size" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">&nbsp;Screen_type:</span>
+                <select name="screen_type" class="upload_data_input">
+                    <option disabled selected></option>
+                    <option>OLED</option>
+                    <option>AMOLED</option>
+                    <option>LCD</option>
+                    <option>IPS</option>
+                    <option>MINILED</option>
+                </select>
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">Battery:</span>
+                <input type="text" name="battery" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">&nbsp;Price:</span>
+                <input type="text" name="price" class="upload_data_input">
+            </div>
+
+            <div class="upload_data">
+                <span class="upload_data_label">Shop:</span>
+                <input type="text" name="shop_name" class="upload_data_input">
+            </div>
+        </div>
+
+        <button type="submit" class="upload_btn">Create</button>
+    </form>
+</div>
+</div>

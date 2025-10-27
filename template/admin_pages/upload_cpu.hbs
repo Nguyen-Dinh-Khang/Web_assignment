@@ -1,0 +1,53 @@
+<div class="upload upload_device cpu">
+    <div class="upload_box">
+        <p class="upload_title">CPU</p>
+
+        <div class="line"></div>
+                
+        <form action="/uploadcpu" method="POST" class="upload_list" enctype="multipart/form-data">
+            <div class="upload_input">
+                <div class="upload_data">
+                    <span class="upload_data_label">Name:</span>
+                    <input type="text" name="cpu_name" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Image:</span>
+                    <input type="file" name="cpu_img_file" class="upload_data_input no_border">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Cores:</span>
+                    <input type="text" name="cores" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Threads:</span>
+                    <input type="text" name="threads" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Base clock:</span>
+                    <input type="text" name="baseClock" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Boost clock:</span>
+                    <input type="text" name="boostClock" class="upload_data_input">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Manufacturer:</span>
+                    <select name="manufacturer" class="upload_data_input">
+                        <option disabled selected></option>
+                        <option>Intel</option>
+                        <option>AMD</option>
+                        <option>Apple</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="upload_btn">Create</button>
+        </form>
+    </div>
+</div>

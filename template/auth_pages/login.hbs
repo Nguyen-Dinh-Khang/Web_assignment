@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/my_css/default.css">
+    <link rel="stylesheet" href="/static/my_css/sub_layout.css">
+</head>
+<body>
+
+<div class="auth-form">
+    <div class="auth-form_block" style="">
+
+        <h1>Login</h1>
+
+        <form method="POST" action="/login" class="form__input">
+            <div class="form__input__item">
+                Username:
+                <input type="text" name="username" class="input input__username" placeholder="Nhập username">
+            </div>
+            
+            <div class="form__input__item">
+                Password:
+                <input type="text" name="password" class="input input__password" placeholder="Nhập password">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">login</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

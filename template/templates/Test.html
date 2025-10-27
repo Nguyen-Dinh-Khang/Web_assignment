@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/my_css/default.css">
+    <link rel="stylesheet" href="/static/my_css/main_layout.css">
+    <link rel="stylesheet" href="/static/my_css/sub_layout.css">
+    <link rel="stylesheet" href="/static/my_css/main_site.css">
+    <link rel="stylesheet" href="/static/my_css/sub_site.css">
+</head>
+<body style="background-color: #e9e9e9;">
+
+<div class="container-fluid fixed-top">
+    <div class="row p-2" style="background-image: linear-gradient(to bottom, #000000, #464646)">
+        <div class="col-1">
+            <a href="/">
+            <img src="/static/img/web icon.png" alt="Lỗi rồi" style="height: 60px; border-radius: 50%;">
+            </a>
+        </div>
+        <div class="col-9 d-flex justify-content-center align-self-center text-light" style="padding-left: 120px;">
+            <h1>Computer search website</h1>
+        </div>
+        <div class="col-2 d-flex justify-content-end align-self-center">
+                <a href="/signup">
+                <button class="btn btn-light me-1">sign up</button>
+                </a>
+
+                <a href="/login">
+                <button class="btn btn-light">login</button>
+                </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex align-item-center justify-content-between" style="background-color: #505050;">
+            <ul class="nav__list">
+                <a href="/laptop" class="nav__list__item">
+                    <span>Search laptop</span>                    
+                </a>
+                <a href="/shop" class="nav__list__item">
+                    <span>Shop</span>
+                </a>
+                <a href="/offer" class="nav__list__item">
+                    <span>Offer</span>
+                </a>
+                <a href="/info" class="nav__list__item">
+                    <span>Technology info</span>
+                </a>
+            </ul>
+            <ul class="nav__list">
+                <a href="myshop" class="nav__list__item special">
+                    <span>My Shop</span>
+                </a>
+
+                <a href="/adminsite" class="nav__list__item special">
+                    <span>Admin</span>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 120px;">
+
+    
+<div class="row search search_laptop">
+    <div class="col-2 search_input">
+        <p class="search_title">Component:</p>
+        <form action="" method="POST" class="input_list">
+            <div class="input_list_item">
+                <span class="input_label">Storage:</span>
+                <select name="storage" id="" class="input_select">
+                    <option disabled selected></option>
+                    <option>256GB SSD</option>
+                    <option>256GB HDD</option>
+                    <option>512GB SSD</option>
+                    <option>512GB HDD</option>
+                    <option>1TB SSD</option>
+                    <option>1TB HDD</option>
+                </select>
+            </div>
+
+            <div class="input_list_item">
+                <span class="input_label">Ram:</span>
+                <input type="text" name="ram" class="input_data">
+            </div>
+
+            <div class="input_list_item">
+                <span class="input_label">Cpu:</span>
+                <input type="text" name="cpu" class="input_data">
+            </div>
+
+            <div class="input_list_item">
+                <span class="input_label">Gpu:</span>
+                <input type="text" name="gpu" class="input_data">
+            </div>
+
+            <div class="input_list_item">
+                <span class="input_label">Battery:</span>
+                <input type="text" name="battery" class="input_data">
+            </div>
+
+            <div class="input_list_item">
+                <span class="input_label">Price:</span>
+                <input type="text" name="price" class="input_data">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
+
+    <div class="col-2"></div>
+
+    <div class="col-10 search_content">
+        <form action="" method="POST" class="laptop_name_input input-group">
+            <input type="text" name="laptop_name" class="input_data form-control">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+        </form>
+        
+        <div class="display_laptop">
+            <div class="display_block">
+                <div class="display_laptop_img">
+                    <img src='/static/uploads/laptop/1761322212775-MacBook_Pro_M3.jpg' class="laptop_img">
+                </div>
+
+                <div class="display_laptop_content">
+                    <div class="laptop_content content_name">
+                        <div class="laptop_content_label">Name:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_storage">
+                        <div class="laptop_content_label">Storage:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_ram">
+                        <div class="laptop_content_label">RAM:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_cpu">
+                        <div class="laptop_content_label">CPU:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_gpu">
+                        <div class="laptop_content_label">GPU:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_battery">
+                        <div class="laptop_content_label">Battery:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_price">
+                        <div class="laptop_content_label">Price:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="display_block">
+                <div class="display_laptop_img">
+                    <img src='/static/uploads/laptop/1761322212775-MacBook_Pro_M3.jpg' class="laptop_img">
+                </div>
+
+                <div class="display_laptop_content">
+                    <div class="laptop_content content_name">
+                        <div class="laptop_content_label">Name:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_storage">
+                        <div class="laptop_content_label">Storage:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_ram">
+                        <div class="laptop_content_label">RAM:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_cpu">
+                        <div class="laptop_content_label">CPU:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_gpu">
+                        <div class="laptop_content_label">GPU:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_battery">
+                        <div class="laptop_content_label">Battery:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                    <div class="laptop_content content_price">
+                        <div class="laptop_content_label">Price:</div>
+                        <div class="laptop_content_data"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="nav_page">
+            <ul class="pagination">
+                <li class="page-item">
+                <a class="page-link" href="/laptop?page={{current_page}}&limit=15&type=laptop&back=1">
+                    <span>«</span>
+                </a>
+                </li>
+                {{#each range_page}}
+                <li class="page-item"><a class="page-link" href="/laptop?page={{.}}&limit=15&type=laptop">{{.}}</a></li>
+                {{/each}}
+                <a class="page-link" href="/laptop?page={{current_page}}&limit=15&type=laptop&next=1">
+                    <span>»</span>
+                </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>
+
+
+
+    
+</div>
+
+</body>
+</html>

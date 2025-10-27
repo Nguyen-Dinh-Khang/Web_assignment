@@ -1,0 +1,10 @@
+.search_sub .row {
+    width: 100%;
+    margin: 0px;
+}
+
+.search_sub .input-group {
+    width: 100%;
+    padding: 10px 100px;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+//Model
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String    @unique
+  password  String 
+  role      User_Role      @default(client)
+
+  shop      Shop?      
+}
+enum User_Role{
+  client
+  staff
+  admin
+}
+
+
+model Laptop {
+  id            Int       @id @default(autoincrement())
+  laptop_name   String    @unique
+  laptop_img    String
+
+  storage       String
+  ram           String
+  cpu           String
+  gpu           String
+  screen_size   Float
+  screen_type   Laptop_Screen_Type
+  battery       String
+  price         Int
+
+  shop_id       Int
+  shop          Shop      @relation(fields: [shop_id], references: [id])
+}
+enum Laptop_Screen_Type{
+  OLED
+  AMOLED
+  LCD
+  IPS
+  MINILED
+}
+
+
+model Shop {
+  id            Int       @id @default(autoincrement())
+  shop_name     String    @unique
+  shop_address  String
+
+  laptops       Laptop[]
+  user_id       Int       @unique
+  user          User      @relation(fields: [user_id], references: [id])
+}
+
+
+model CPU {
+  id           Int      @id @default(autoincrement())
+  cpu_name     String   @unique
+  cpu_img      String
+
+  cores        Int
+  threads      Int
+  baseClock    Float    // Sử dụng Float cho tốc độ xung nhịp
+  boostClock   Float
+  manufacturer CPU_manufacturer
+}
+enum CPU_manufacturer{
+  Intel
+  AMD
+  Apple
+}
+
+
+model GPU {
+  id           Int      @id @default(autoincrement())
+  gpu_name     String   @unique
+  gpu_img      String
+
+  vram         Int      // Dung lượng VRAM (ví dụ: GB)
+  clockSpeed   Float
+  manufacturer GPU_manufacturer
+}
+enum GPU_manufacturer{
+  NVIDIA 
+  AMD 
+  Intel_Arc
+}
+
+
+model Ram {
+  id           Int      @id @default(autoincrement())
+  ram_name     String   @unique
+  ram_img      String
+
+  capacity     Int      // Dung lượng (ví dụ: GB)
+  speed        Int      // Tốc độ (ví dụ: MHz)
+  type         Ram_type   // Loại (ví dụ: DDR4, DDR5)
+  manufacturer Ram_manufacturer
+}
+enum Ram_manufacturer{
+  Kingston 
+  Corsair
+  G_Skill
+  Hynix
+  Micron
+}
+enum Ram_type{
+  DDR4
+  DDR5
+  LPDDR4X
+  LPDDR5
+}
