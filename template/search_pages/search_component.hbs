@@ -1,12 +1,204 @@
-<div class="search_sub search_info">
-    <div class="row">
-        <form action="/info" class="input-group">
-            <input type="text" name="info" class="form-control" placeholder="Nhập linh kiện cần tìm">
-            <button type="submit" class="btn btn-outline-secondary">Button</button>
-        </form>
+<div class="row search search_component">
+    <form action="/searchcomponent" method="POST" class="component_name_input input-group">
+        <input type="text" name="component_name" class="input_data form-control" placeholder="Nhập linh kiện cần tìm" value="{{component_name}}">
+        <button type="submit" class="btn btn-outline-secondary">Search</button>
+    </form>
+
+    
+    {{!-- RAM --}}
+    {{#if list.ram}}
+    <div class="component_name">RAM:</div>
+    
+    <div class="display display_component display_ram">
+        {{#if message}}
+            <p> {{message}} </p>
+        {{else}}
+        {{#each list.ram}}
+        <div class="display_block">
+            <div class="display_img">
+                <a href="/componentinfo?componentid={{id}}&type=ram" class="device_link">
+                <img src={{ram_img}} class="img">
+                </a>
+            </div>
+
+            <div class="display_content">
+                <div class="content content_name">
+                    <div class="content_label">Name:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{ram_name}}</div>
+                </div>
+
+                <div class="content content_capacity">
+                    <div class="content_label">Capacity:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{capacity}}</div>
+                    <div class="content_unit">&nbsp;GB</div>
+                </div>
+
+                <div class="content content_speed">
+                    <div class="content_label">Speed:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{speed}}</div>
+                    <div class="content_unit">&nbsp;MHz</div>
+                </div>
+
+                <div class="content content_type">
+                    <div class="content_label">Type:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{type}}</div>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
     </div>
-    <div class="row">
-                
+
+    <footer class="nav_page nav_page_component">
+        <ul class="pagination">
+            <li class="page-item {{#if range_page.ram.min}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=1">
+                    <span>«</span>
+                </a>
+            </li>
+
+            {{#each range_page.ram.range}}
+            <li class="page-item {{#if_eq . ../current_page_ram}}active{{/if_eq}}">
+                <a class="page-link" href="?page={{.}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}&limit=1">{{.}}</a>
+            </li>
+            {{/each}}
+
+            <li class="page-item {{#if range_page.ram.max}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=1">
+                    <span>»</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    {{/if}}
+
+
+    {{!-- CPU --}}
+    {{#if list.cPU}}
+    <div class="component_name">CPU:</div>
+    
+    <div class="display display_component">
+        {{#if message}}
+            <p> {{message}} </p>
+        {{else}}
+        {{#each list.cPU}}
+        <div class="display_block">
+            <div class="display_img">
+                <a href="/componentinfo?componentid={{id}}&type=cPU" class="device_link">
+                <img src={{cpu_img}} class="img">
+                </a>
+            </div>
+
+            <div class="display_content">
+                <div class="content content_name">
+                    <div class="content_label">Name:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{cpu_name}}</div>
+                </div>
+
+                <div class="content content_cores">
+                    <div class="content_label">Cores:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{cores}}</div>
+                </div>
+
+                <div class="content content_threads">
+                    <div class="content_label">Threads:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{threads}}</div>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
     </div>
-</div>
+
+    <footer class="nav_page nav_page_component">
+        <ul class="pagination">
+            <li class="page-item {{#if range_page.cPU.min}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=2">
+                    <span>«</span>
+                </a>
+            </li>
+
+            {{#each range_page.cPU.range}}
+            <li class="page-item {{#if_eq . ../current_page_cpu}}active{{/if_eq}}">
+                <a class="page-link" href="?page={{../current_page_ram}}&page={{.}}&page={{../current_page_gpu}}&limit=1">{{.}}</a>
+            </li>
+            {{/each}}
+
+            <li class="page-item {{#if range_page.cPU.max}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=2">
+                    <span>»</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    {{/if}}
+
+
+    {{!-- GPU --}}
+    {{#if list.gPU}}
+    <div class="component_name">GPU:</div>
+    
+    <div class="display display_component">
+        {{#if message}}
+            <p> {{message}} </p>
+        {{else}}
+        {{#each list.gPU}}
+        <div class="display_block">
+            <div class="display_img">
+                <a href="/componentinfo?componentid={{id}}&type=gPU" class="device_link">
+                <img src={{gpu_img}} class="img">
+                </a>
+            </div>
+
+            <div class="display_content">
+                <div class="content content_name">
+                    <div class="content_label">Name:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{gpu_name}}</div>
+                </div>
+
+                <div class="content content_vram">
+                    <div class="content_label">Vram:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{vram}}</div>
+                    <div class="content_unit">&nbsp;GB</div>
+                </div>
+
+                <div class="content content_clockspeed">
+                    <div class="content_label">ClockSpeed:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{clockSpeed}}</div>
+                    <div class="content_unit">&nbsp;MHz</div>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+
+    <footer class="nav_page nav_page_component">
+        <ul class="pagination">
+            <li class="page-item {{#if range_page.gPU.min}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=3">
+                    <span>«</span>
+                </a>
+            </li>
+
+            {{#each range_page.gPU.range}}
+            <li class="page-item {{#if_eq . ../current_page_gpu}}active{{/if_eq}}">
+                <a class="page-link" href="?page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{.}}&limit=1">{{.}}</a>
+            </li>
+            {{/each}}
+
+            <li class="page-item {{#if range_page.gPU.max}}disabled{{/if}}">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=3">
+                    <span>»</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    {{/if}}
+
+
+
 </div>

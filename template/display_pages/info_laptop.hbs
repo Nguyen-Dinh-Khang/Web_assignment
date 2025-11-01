@@ -1,0 +1,84 @@
+<div class="info info_laptop">
+    <div class="info_block">
+        <div class="info_img">
+            <img src="{{laptop_img}}" alt="Error" class="img">
+        </div>
+
+        <div class="info_content">
+            <div class="info_content_header">
+                <span class="title">Laptop</span>
+            </div>
+
+            <div class="info_content_main">
+                <div class="content_block content_main_left">
+                    <div class="content">
+                        <div class="content_label">Name:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{laptop_name}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Storage:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{storage}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Ram:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{ram}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">CPU:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{cpu}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">GPU:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{gpu}}</div>
+                    </div>
+                </div>
+
+                <div class="content_block_line"></div>
+
+                <div class="content_block content_main_right">
+                    <div class="content">
+                        <div class="content_label">Screen_size:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{screen_size}}&nbsp;inch</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Screen_type:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{screen_type}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Battery:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{battery}}Wh</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info_content_footer">
+                <div class="content">
+                    <div class="content_label">Price:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{price}}&nbsp;vnđ</div>
+                </div>
+
+                <div class="content">
+                    <div class="content_label">Shop:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{shop.shop_name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="update_block">
+        {{#if user}}
+            {{#if_us user.role 'admin'}}
+            <a href="" class="update_btn">
+                <button class="mybtn">Update</button>
+            </a>
+            {{/if_us}}
+        {{/if}}
+    </div>
+
+</div>

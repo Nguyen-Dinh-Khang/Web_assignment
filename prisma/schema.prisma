@@ -41,7 +41,7 @@ model Laptop {
   gpu           String
   screen_size   Float
   screen_type   Laptop_Screen_Type
-  battery       String
+  battery       Int
   price         Int
 
   shop_id       Int

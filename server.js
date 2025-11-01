@@ -30,6 +30,15 @@ app.engine('hbs', handlebars.engine({
     defaultLayout:'main', 
     helpers:{
         if_eq: function(a, b, option) {
+            const valA = parseInt(a, 10)
+            const valB = parseInt(b, 10)
+            
+            if (valA === valB) {
+              return option.fn(this)
+            }
+            return option.inverse(this)
+        },
+        if_us: function(a, b, option) {
             if (a === b) {
               return option.fn(this)
             }

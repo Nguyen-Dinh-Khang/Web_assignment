@@ -1,12 +1,8 @@
-<div class="search_sub search_shop">
-    <div class="row">
-        <form action="/shop" class="input-group">
-            <input type="text" name="shop" class="form-control" placeholder="Nhập shop cần tìm">
-            <button type="submit" class="btn btn-outline-secondary">Button</button>
-        </form>
-    </div>
-    <div class="row">
-                
-    </div>
-</div>
+<div class="row search search_shop">
+    <form action="/searchshop" method="POST" class="shop_name_input input-group">
+        <input type="text" name="shop_name" class="input_data form-control" placeholder="Nhập cửa hàng cần tìm" value="{{shop_name}}">
+        <button type="submit" class="btn btn-outline-secondary">Search</button>
+    </form>
+
+
 </div>

@@ -1,10 +1,10 @@
 <div class="row search search_laptop">
     <div class="col-2 search_input">
         <p class="search_title">Component:</p>
-        <form action="" method="POST" class="input_list">
+        <form action="/laptopcomponent" method="POST" class="input_list">
             <div class="input_list_item">
                 <span class="input_label">Storage:</span>
-                <select name="storage" id="" class="input_select">
+                <select name="storage" id="" class="input_select" value="{{storage}}">
                     <option disabled selected></option>
                     <option>256GB SSD</option>
                     <option>256GB HDD</option>
@@ -17,27 +17,27 @@
 
             <div class="input_list_item">
                 <span class="input_label">Ram:</span>
-                <input type="text" name="ram" class="input_data">
+                <input type="text" name="ram" class="input_data" value="{{ram}}">
             </div>
 
             <div class="input_list_item">
                 <span class="input_label">Cpu:</span>
-                <input type="text" name="cpu" class="input_data">
+                <input type="text" name="cpu" class="input_data" value="{{cpu}}">
             </div>
 
             <div class="input_list_item">
                 <span class="input_label">Gpu:</span>
-                <input type="text" name="gpu" class="input_data">
+                <input type="text" name="gpu" class="input_data" value="{{gpu}}">
             </div>
 
             <div class="input_list_item">
                 <span class="input_label">Battery:</span>
-                <input type="text" name="battery" class="input_data">
+                <input type="text" name="battery" class="input_data" value="{{battery}}">
             </div>
 
             <div class="input_list_item">
                 <span class="input_label">Price:</span>
-                <input type="text" name="price" class="input_data">
+                <input type="text" name="price" class="input_data" value="{{price}}">
             </div>
 
             <button type="submit" class="btn btn-secondary">Search</button>
@@ -47,56 +47,58 @@
     <div class="col-2"></div>
 
     <div class="col-10">
-        <form action="/laptopname" method="POST" class="laptop_name_input input-group">
-            <input type="text" name="laptop_name" class="input_data form-control">
+        <form action="/searchlaptop" method="POST" class="laptop_name_input input-group">
+            <input type="text" name="laptop_name" class="input_data form-control" placeholder="Nhập laptop cần tìm" value="{{laptop_name}}">
             <button type="submit" class="btn btn-outline-secondary">Search</button>
         </form>
                 
-        <div class="display_laptop">
+        <div class="display display_laptop">
             {{#if message}}
                 <p> {{message}} </p>
             {{else}}
             {{#each list}}
             <div class="display_block">
-                <div class="display_laptop_img">
-                    <img src={{laptop_img}} class="laptop_img">
+                <div class="display_img">
+                    <a href="/laptopinfo?laptopid={{id}}" class="device_link">
+                    <img src={{laptop_img}} class="img">
+                    </a>
                 </div>
 
-                <div class="display_laptop_content">
-                    <div class="laptop_content content_name">
-                        <div class="laptop_content_label">Name:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{laptop_name}}</div>
+                <div class="display_content">
+                    <div class="content content_name">
+                        <div class="content_label">Name:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{laptop_name}}</div>
                     </div>
 
-                    <div class="laptop_content content_storage">
-                        <div class="laptop_content_label">Storage:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{storage}}</div>
+                    <div class="content content_storage">
+                        <div class="content_label">Storage:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{storage}}</div>
                     </div>
 
-                    <div class="laptop_content content_ram">
-                        <div class="laptop_content_label">RAM:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{ram}}</div>
+                    <div class="content content_ram">
+                        <div class="content_label">RAM:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{ram}}</div>
                     </div>
 
-                    <div class="laptop_content content_cpu">
-                        <div class="laptop_content_label">CPU:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{cpu}}</div>
+                    <div class="content content_cpu">
+                        <div class="content_label">CPU:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{cpu}}</div>
                     </div>
 
-                    <div class="laptop_content content_gpu">
-                        <div class="laptop_content_label">GPU:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{gpu}}</div>
+                    <div class="content content_gpu">
+                        <div class="content_label">GPU:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{gpu}}</div>
                     </div>
 
-                    <div class="laptop_content content_battery">
-                        <div class="laptop_content_label">Battery:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{battery}}</div>
+                    <div class="content content_battery">
+                        <div class="content_label">Battery:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{battery}}</div>
                     </div>
 
-                    <div class="laptop_content content_price">
-                        <div class="laptop_content_label">Price:&nbsp;&nbsp;</div>
-                        <div class="laptop_content_data">{{price}}</div>
-                        <div class="laptop_content_money">&nbsp;VNĐ</div>
+                    <div class="content content_price">
+                        <div class="content_label">Price:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{price}}</div>
+                        <div class="content_unit">&nbsp;VNĐ</div>
                     </div>
 
                 </div>
@@ -108,19 +110,19 @@
         <footer class="nav_page">
             <ul class="pagination">
                 <li class="page-item {{#if range_page.min}}disabled{{/if}}">
-                    <a class="page-link" href="?page={{current_page}}&limit=6&type=laptop&back=1">
+                    <a class="page-link" href="?page={{current_page}}&limit=6&back=1">
                         <span>«</span>
                     </a>
                 </li>
 
                 {{#each range_page.range}}
                 <li class="page-item {{#if_eq . ../current_page}}active{{/if_eq}}">
-                    <a class="page-link" href="?page={{.}}&limit=6&type=laptop">{{.}}</a>
+                    <a class="page-link" href="?page={{.}}&limit=6">{{.}}</a>
                 </li>
                 {{/each}}
 
                 <li class="page-item {{#if range_page.max}}disabled{{/if}}">
-                    <a class="page-link" href="?page={{current_page}}&limit=6&type=laptop&next=1">
+                    <a class="page-link" href="?page={{current_page}}&limit=6&next=1">
                         <span>»</span>
                     </a>
                 </li>

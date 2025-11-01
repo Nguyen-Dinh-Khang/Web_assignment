@@ -10,10 +10,6 @@ class shop {
         res.render('search_pages/search_shop')
     }
 
-    Search_Component(req,res){
-        res.render('search_pages/search_component')
-    }
-
     Search_Offer(req,res){
         res.render('search_pages/search_offer')
     }
@@ -82,6 +78,57 @@ class shop {
             return res.redirect("/")
         })
     }
+
+
+
+
+    // Hiển thị thông tin
+    Info_Laptop = async (req,res) => {
+        const {laptopid} = req.query
+        const id = parseInt(laptopid,10)
+
+        try{
+            const laptop = await prisma.laptop.findUnique({ 
+                where: {id},
+                include: {shop:true}
+            })
+            console.log('')
+            console.log('')
+            console.log(laptop)
+            return res.render('display_pages/info_laptop', laptop)
+
+        } catch (err) {
+            console.error("Lỗi Server 500 chi tiết:", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }
+    }
+
+    Info_Component = async (req,res) => {
+        const {componentid, type} = req.query
+        const id = parseInt(componentid, 10)
+
+        try{
+            const component = await prisma[type].findUnique({
+                where: {id}
+            })
+            console.log('')
+            console.log('')
+            console.log(component)
+
+            if (type === "cPU") {
+                return res.render("display_pages/info_cpu", component)
+            } else if (type === "gPU") {
+                return res.render("display_pages/info_gpu", component)
+            } else if (type === "ram") {
+                return res.render("display_pages/info_ram", component)
+            }
+
+        } catch (err) {
+            console.error("Lỗi Server 500 chi tiết:", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }
+    } 
+
 }
 
 module.exports = new shop

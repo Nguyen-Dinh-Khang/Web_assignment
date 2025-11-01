@@ -1,0 +1,54 @@
+<div class="info info_component">
+    <div class="info_block">
+        <div class="info_img">
+            <img src="{{gpu_img}}" alt="Error" class="img">
+        </div>
+
+        <div class="info_content">
+            <div class="info_content_header">
+                <span class="title">GPU</span>
+            </div>
+
+            <div class="info_content_main">
+                <div class="content_block content_main_left">
+                    <div class="content">
+                        <div class="content_label">Name:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{gpu_name}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Vram:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{vram}}</div>
+                    </div>
+                </div>
+
+                <div class="content_block_line"></div>
+
+                <div class="content_block content_main_right">
+                    <div class="content">
+                        <div class="content_label">ClockSpeed:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{clockSpeed}}&nbsp;GHz</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info_content_footer">
+                <div class="content">
+                    <div class="content_label">Manufacturer:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{manufacturer}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="update_block">
+        {{#if user}}
+            {{#if_us user.role 'admin'}}
+            <a href="" class="update_btn">
+                <button class="mybtn">Update</button>
+            </a>
+            {{/if_us}}
+        {{/if}}
+    </div>
+
+</div>

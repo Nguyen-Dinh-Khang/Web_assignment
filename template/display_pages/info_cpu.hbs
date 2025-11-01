@@ -1,0 +1,64 @@
+<div class="info info_component">
+    <div class="info_block">
+        <div class="info_img">
+            <img src="{{cpu_img}}" alt="Error" class="img">
+        </div>
+
+        <div class="info_content">
+            <div class="info_content_header">
+                <span class="title">CPU</span>
+            </div>
+
+            <div class="info_content_main">
+                <div class="content_block content_main_left">
+                    <div class="content">
+                        <div class="content_label">Name:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{cpu_name}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Cores:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{cores}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">Threads:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{threads}}</div>
+                    </div>
+                </div>
+
+                <div class="content_block_line"></div>
+
+                <div class="content_block content_main_right">
+                    <div class="content">
+                        <div class="content_label">BaseClock:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{baseClock}}&nbsp;GHz</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content_label">BoostClock:&nbsp;&nbsp;</div>
+                        <div class="content_data">{{boostClock}}&nbsp;GHz</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info_content_footer">
+                <div class="content">
+                    <div class="content_label">Manufacturer:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{manufacturer}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="update_block">
+        {{#if user}}
+            {{#if_us user.role 'admin'}}
+            <a href="" class="update_btn">
+                <button class="mybtn">Update</button>
+            </a>
+            {{/if_us}}
+        {{/if}}
+    </div>
+
+</div>

@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-12 d-flex align-item-center justify-content-between" style="background-color: #505050;">
             <ul class="nav__list">
-                <a href="/laptop?page=1&limit=6&type=laptop" class="nav__list__item">
+                <a href="/laptop?page=1&limit=6" class="nav__list__item">
                     <span>Search laptop</span>                    
                 </a>
                 <a href="/shop" class="nav__list__item">
@@ -52,22 +52,22 @@
                 <a href="/offer" class="nav__list__item">
                     <span>Offer</span>
                 </a>
-                <a href="/component" class="nav__list__item">
+                <a href="/component?page=1&page=1&page=1&limit=1" class="nav__list__item">
                     <span>Technology info</span>
                 </a>
             </ul>
             <ul class="nav__list">
                 {{#if user}}
-                    {{#if_eq user.role 'staff'}}
+                    {{#if_us user.role 'staff'}}
                         <a href="myshop" class="nav__list__item special">
                             <span>My Shop</span>
                         </a>
-                    {{/if_eq}}
-                    {{#if_eq user.role 'admin'}}
+                    {{/if_us}}
+                    {{#if_us user.role 'admin'}}
                         <a href="/adminsite" class="nav__list__item special">
                             <span>Admin</span>
                         </a>
-                    {{/if_eq}}
+                    {{/if_us}}
                 {{/if}} 
             </ul>
         </div>
