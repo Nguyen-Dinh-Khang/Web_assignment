@@ -1,0 +1,104 @@
+<div class="info info_shop">
+    <div class="shop_info">
+        <div class="shop_info_left">
+            <div class="shop_name">
+                <span class="name">{{shop_name}}</span>
+            </div>
+            <div class="shop_address">
+                <span class="address">{{shop_address}}</span>
+            </div>
+        </div>
+        <div class="info_shop_right update_block">
+            {{#if user}}
+                {{#if_us user.role 'admin'}}
+                <a href="/updateshop?shopid={{id}}" class="update_btn">
+                    <button class="mybtn">Update</button>
+                </a>
+                {{/if_us}}
+                {{#if_us user.role 'staff'}}
+                    {{#if_eq user.shop.id id}}
+                    <a href="/updateshop?shopid={{id}}" class="update_btn">
+                        <button class="mybtn">Change</button>   
+                    </a>
+                    {{/if_eq}}
+                {{/if_us}}
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="shop_content">
+        <div class="row search search_laptop">
+            <div class="display display_laptop">
+                {{#each laptops}}
+                <div class="display_block">
+                    <div class="display_img">
+                        <a href="/laptopinfo?laptopid={{id}}" class="device_link">
+                        <img src={{laptop_img}} class="img">
+                        </a>
+                    </div>
+
+                    <div class="display_content">
+                        <div class="content content_name">
+                            <div class="content_label">Name:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{laptop_name}}</div>
+                        </div>
+
+                        <div class="content content_storage">
+                            <div class="content_label">Storage:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{storage}}</div>
+                        </div>
+
+                        <div class="content content_ram">
+                            <div class="content_label">RAM:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{ram}}</div>
+                        </div>
+
+                        <div class="content content_cpu">
+                            <div class="content_label">CPU:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{cpu}}</div>
+                        </div>
+
+                        <div class="content content_gpu">
+                            <div class="content_label">GPU:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{gpu}}</div>
+                        </div>
+
+                        <div class="content content_battery">
+                            <div class="content_label">Battery:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{battery}}</div>
+                        </div>
+
+                        <div class="content content_price">
+                            <div class="content_label">Price:&nbsp;&nbsp;</div>
+                            <div class="content_data">{{price}}</div>
+                            <div class="content_unit">&nbsp;VNĐ</div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+            <footer class="nav_page">
+                <ul class="pagination">
+                    <li class="page-item {{#if range_page.min}}disabled{{/if}}">
+                        <a class="page-link" href="?shopid={{id}}&page={{current_page}}&limit=6&back=1">
+                            <span>«</span>
+                        </a>
+                    </li>
+
+                    {{#each range_page.range}}
+                    <li class="page-item {{#if_eq . ../current_page}}active{{/if_eq}}">
+                        <a class="page-link" href="?shopid={{../id}}&page={{.}}&limit=6">{{.}}</a>
+                    </li>
+                    {{/each}}
+
+                    <li class="page-item {{#if range_page.max}}disabled{{/if}}">
+                        <a class="page-link" href="?shopid={{id}}&page={{current_page}}&limit=6&next=1">
+                            <span>»</span>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</div>

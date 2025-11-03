@@ -1,18 +1,4 @@
-.search_sub .row {
-    width: 100%;
-    margin: 0px;
-}
-
-.search_sub .input-group {
-    width: 100%;
-    padding: 10px 100px;
-    margin-bottom: 30px;
-}
-
-
-
-
-
+/* Laptop and component */
 .info {
     width: 100%;
     height: 609px;
@@ -84,6 +70,7 @@
 }
 
 
+
 /* Footer */
 .info .info_content_footer{
     width: 100%;
@@ -110,6 +97,7 @@
 }
 
 
+
 /* Header */
 .info .info_content_header{
     width: 100%;
@@ -123,6 +111,7 @@
     font-weight: 700;
     margin: auto;
 }
+
 
 
 /* Update btn */
@@ -147,3 +136,58 @@
     background-color: rgb(167, 167, 167);
 }
 
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Shop */
+.info_shop{
+    width: 100%;
+    height: 609px;
+}
+
+.info_shop .shop_info{
+    height: 20%;
+    width: 100%;
+    padding: 30px 40px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info_shop .shop_name{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.info_shop .name{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.info_shop .shop_address{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.info_shop .shop_content{
+    height: 80%;
+    width: 100%;
+}
+
+.info_shop .display{
+    margin: 0px;
+}
+
+.info_shop .content{
+    padding: 0px;
+}
+
+.info_shop .nav_page{
+    height: 37px;
+    margin-top: 10px;
+}

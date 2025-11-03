@@ -76,6 +76,8 @@ app.use(async (req, res, next) => {
 
   next()
 })
+
+
 // 🔽 Bắt buộc để đọc dữ liệu từ form HTML (x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: true }));
 // Hàm ở nơi khác giúp xử lí các route ở nơi khác thay vì xử lí tại file này

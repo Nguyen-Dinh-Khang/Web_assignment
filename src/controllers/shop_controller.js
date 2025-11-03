@@ -1,21 +1,22 @@
 const prisma = require('../databases/database')
 const fs = require('fs')
+const {Paginate_Data_List, Range_Page_List} = require('./shop_search')
+
+
 
 class shop {
     Home = async (req,res) => {
         res.render('home')
     }
 
-    Search_Shop(req,res){
-        res.render('search_pages/search_shop')
+    Admin_Site(req,res){
+        res.render('admin_pages/admin_site', { layout: 'admin' })
     }
 
-    Search_Offer(req,res){
-        res.render('search_pages/search_offer')
+    Staff_Site = async (req,res) => {
+        const { shopid } = req.query
+        return res.redirect(`/shopinfo?shopid=${shopid}&page=1&limit=6`)
     }
-
-
-
 
     // Đăng nhập
     Sign_Up_Form(req,res){
@@ -129,6 +130,54 @@ class shop {
         }
     } 
 
+    Info_Shop = async (req,res) => {
+        const { shopid, page, limit, next, back} = req.query
+        const limitInt = parseInt(limit, 10)
+        const id = parseInt(shopid, 10)
+        let current_page = parseInt(page, 10)
+
+        if (next) {
+            current_page += 1
+        } else if (back) {
+            current_page -= 1
+        }
+        console.log("")
+        console.log("")
+        console.log("1: Đã xử lí xong dữ liệu vào hàm Info_Shop")
+
+        try{
+            const shop = await prisma.shop.findUnique({ 
+                where: {id},
+                select: {
+                    id: true,
+                    shop_name: true,
+                    shop_address: true,
+                    laptops: true
+                }
+            })
+
+            const laptops = Paginate_Data_List(current_page, limitInt, shop.laptops)
+            const range_page = Range_Page_List(current_page, limitInt, shop.laptops)
+
+            const Data = {
+                id: shop.id,
+                shop_name: shop.shop_name,
+                shop_address: shop.shop_address,
+                laptops,
+                range_page,
+                current_page
+            }
+            console.log("4: Đã tạo xong data")
+            console.log('Shop:', shop.shop_name)
+            console.log('Trang:', current_page, '  giới hạn:', limitInt, '  phạm vi:',  range_page)
+            return res.render('display_pages/info_shop', Data)
+
+        } catch (err) {
+            console.error("Error_random_component: ", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }
+    } 
+    
 }
 
 module.exports = new shop

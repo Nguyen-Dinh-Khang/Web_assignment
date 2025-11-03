@@ -74,10 +74,15 @@
     <div class="update_block">
         {{#if user}}
             {{#if_us user.role 'admin'}}
-            <a href="" class="update_btn">
+            <a href="/updatelaptop?laptopid={{id}}" class="update_btn">
                 <button class="mybtn">Update</button>
             </a>
             {{/if_us}}
+            {{#if_eq user.shop.id shop.id}}
+            <a href="/updatelaptop?laptopid={{id}}" class="update_btn">
+                <button class="mybtn">Update</button>
+            </a>
+            {{/if_eq}}
         {{/if}}
     </div>
 

@@ -2,28 +2,44 @@ const prisma = require('../databases/database')
 const fs = require('fs')
 
 class shop_upload{
-    Admin_Site(req,res){
-        res.render('admin_pages/admin_site', { layout: 'admin' })
-    }
-
     Upload_Shop_Form(req,res){
-        res.render('admin_pages/upload_shop', { layout: 'admin' })
+        res.render('admin_pages/form_shop', { 
+            layout: 'admin',
+            isUpdating: false,
+            actionPath: '/uploadshop'
+        })
     }
 
     Upload_Laptop_Form(req, res){
-        res.render('admin_pages/upload_laptop', { layout: 'admin' })
+        res.render('admin_pages/form_laptop', { 
+            layout: 'admin',
+            isUpdating: false,
+            actionPath: '/uploadlaptop' 
+        })
     }
 
     Upload_Ram_Form(req, res){
-        res.render('admin_pages/upload_ram', { layout: 'admin' })
+        res.render('admin_pages/form_ram', { 
+            layout: 'admin',
+            isUpdating: false,
+            actionPath: '/uploadram'
+        })
     }
 
     Upload_Cpu_Form(req, res){
-        res.render('admin_pages/upload_cpu', { layout: 'admin' })
+        res.render('admin_pages/form_cpu', { 
+            layout: 'admin',
+            isUpdating: false,
+            actionPath: '/uploadcpu'
+        })
     }
 
     Upload_Gpu_Form(req, res){
-        res.render('admin_pages/upload_gpu', { layout: 'admin' })
+        res.render('admin_pages/form_gpu', { 
+            layout: 'admin',
+            isUpdating: false,
+            actionPath: '/uploadgpu'
+        })
     }
 
 
@@ -63,7 +79,7 @@ class shop_upload{
             return res.status(201).json({ message: "Shop created successfully", shop: newshop })
 
         } catch (err) {
-            console.error("Lỗi Server 500 chi tiết:", err)
+            console.error("Upload_Shop error:", err)
             return res.status(500).json({ message: "Server error! Please do it again" })
         }  
     }
@@ -72,6 +88,7 @@ class shop_upload{
         const { laptop_name, storage, ram, cpu, gpu, screen_size, screen_type, battery, price, shop_name } = req.body
         const screen_sizeFloat = parseFloat(screen_size)
         const priceInt = parseInt(price, 10)
+        const batteryInt = parseInt(battery, 10)
         const laptop_img = req.file 
             ? `/static/uploads/laptop/${req.file.filename}`
             : null
@@ -80,7 +97,7 @@ class shop_upload{
             if (req.file) { fs.unlinkSync(req.file.path) }
             return res.status(400).json({ message: "Laptop image file is required!" })
         }
-        if (!laptop_name || !storage || !ram || !cpu || !gpu || !screen_sizeFloat || !screen_type || !battery || !priceInt || !shop_name){
+        if (!laptop_name || !storage || !ram || !cpu || !gpu || !screen_sizeFloat || !screen_type || !batteryInt || !priceInt || !shop_name){
             if (req.file) { fs.unlinkSync(req.file.path) }
             return res.status(400).json({ message: "Please fill in all required information" })
         }
@@ -110,7 +127,7 @@ class shop_upload{
                     gpu, 
                     screen_size: screen_sizeFloat,
                     screen_type, 
-                    battery, 
+                    battery: batteryInt, 
                     price: priceInt,
                     shop_id: existingshop.id
             }})

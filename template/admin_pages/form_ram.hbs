@@ -1,0 +1,60 @@
+<div class="upload upload_device ram">
+    <div class="upload_box">
+        <p class="upload_title">RAM</p>
+
+        <div class="line"></div>
+                
+        <form action="{{actionPath}}" method="POST" class="upload_list" enctype="multipart/form-data">
+            <div class="upload_input">
+                <div class="upload_data">
+                    <span class="upload_data_label">Name:</span>
+                    <input type="text" name="ram_name" class="upload_data_input" value="{{ram.ram_name}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Image:</span>
+                    <input type="file" name="ram_img_file" class="upload_data_input no_border">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Capacity:</span>
+                    <input type="text" name="capacity" class="upload_data_input" value="{{ram.capacity}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Speed:</span>
+                    <input type="text" name="speed" class="upload_data_input" value="{{ram.speed}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Type:</span>
+                    <select name="type" class="upload_data_input">
+                        <option>{{ram.type}}</option>
+                        <option>DDR4</option>
+                        <option>DDR5</option>
+                        <option>LPDDR4X</option>
+                        <option>LPDDR5</option>
+                    </select>
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Manufacturer:</span>
+                    <select name="manufacturer" class="upload_data_input">
+                        {{#if_us ram.manufacturer "G_Skill"}}
+                            <option value="G_Skill">G.Skill</option>
+                        {{else}}
+                            <option>{{ram.manufacturer}}</option>
+                        {{/if_us}}
+                        <option>Kingston</option>
+                        <option>Corsair</option>
+                        <option value="G_Skill">G.Skill</option>
+                        <option>Hynix</option>
+                        <option>Micron</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="upload_btn">{{#if isUpdating}}Update{{else}}Create{{/if}}</button>
+        </form>
+    </div>
+</div>

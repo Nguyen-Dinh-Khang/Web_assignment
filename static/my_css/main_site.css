@@ -46,7 +46,7 @@
 }
 
 
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Search tên */
 .search .laptop_name_input{
     margin-top: 20px;
@@ -68,26 +68,13 @@
 }
 
 
-
-/* Hiển thị */
-.search_component .component_name{
-    background-color: #818181;
-    width: 100%;
-    margin: 40px 0px 10px;
-    color: #dfdfdf;
-    font-size: 30px;
-    font-weight: 600;
-}
-
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Hiển thị chung*/
 .search .display{
+    margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap
-}
-
-.search .display_laptop,
-.search .display_ram{
-    margin-top: 30px;
 }
 
 .search .display_block{
@@ -120,25 +107,17 @@
     margin: auto;
 }
 
-.search .display .display_content{
+.search .display_content{
     width: 55%;
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.search .display_laptop .display_content{
-    justify-content: space-evenly;
-}
-
-.search .display .content{
+.search .content{
     width: 100%;
     display: flex;
     align-items: center;
-}
-
-.search .display_component .content{
-    margin: 3px 0px;
 }
 
 .search .content_label{
@@ -158,6 +137,64 @@
     align-self: flex-end;
 }
 
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Hiển thị riêng */
+/* laptop */
+.search .display_laptop .display_content{
+    justify-content: space-evenly;
+}
+
+/* _____________________________________________________________________________ */
+/* component */
+.search_component .component_name{
+    background-color: #818181;
+    width: 100%;
+    margin: 40px 0px 10px;
+    color: #dfdfdf;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.search .display_component .content{
+    margin: 3px 0px;
+}
+
+/* _____________________________________________________________________________ */
+/* shop */
+.search .display_shop .display_block{
+    background-image: linear-gradient(to bottom, rgb(234, 251, 234), rgb(238, 246, 245));
+    display: block;
+    padding: 0px 10px;
+}
+
+.search .display_shop .block_name{
+    height: 30%;
+    display: flex;
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.search .display_shop .brand_name{
+    margin: auto;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(119, 181, 181);
+}
+
+.search .display_shop .block_info{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: rgb(53, 53, 53);
+}
+
+.search .display_shop .content_label{
+    font-size: 15px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Footer */
 .search .nav_page{
     width: 100%;

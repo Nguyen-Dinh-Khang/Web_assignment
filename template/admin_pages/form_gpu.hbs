@@ -1,0 +1,43 @@
+<div class="upload upload_device gpu">
+    <div class="upload_box">
+        <p class="upload_title">GPU</p>
+
+        <div class="line"></div>
+                
+        <form action="{{actionPath}}" method="POST" class="upload_list" enctype="multipart/form-data">
+            <div class="upload_input">
+                <div class="upload_data">
+                    <span class="upload_data_label">Name:</span>
+                    <input type="text" name="gpu_name" class="upload_data_input" value="{{gpu.gpu_name}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Image:</span>
+                    <input type="file" name="gpu_img_file" class="upload_data_input no_border">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Vram:</span>
+                    <input type="text" name="vram" class="upload_data_input" value="{{gpu.vram}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">&nbsp;Clock speed:</span>
+                    <input type="text" name="clockSpeed" class="upload_data_input" value="{{gpu.clockSpeed}}">
+                </div>
+
+                <div class="upload_data">
+                    <span class="upload_data_label">Manufacturer:</span>
+                    <select name="manufacturer" class="upload_data_input">
+                        <option>{{gpu.manufacturer}}</option>
+                        <option>NVIDIA</option>
+                        <option>AMD</option>
+                        <option value="Intel_Arc">Intel Arc</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="upload_btn">{{#if isUpdating}}Update{{else}}Create{{/if}}</button>
+        </form>
+    </div>
+</div>

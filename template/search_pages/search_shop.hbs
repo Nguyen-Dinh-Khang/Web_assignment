@@ -1,8 +1,37 @@
 <div class="row search search_shop">
     <form action="/searchshop" method="POST" class="shop_name_input input-group">
-        <input type="text" name="shop_name" class="input_data form-control" placeholder="Nhập cửa hàng cần tìm" value="{{shop_name}}">
+        <input type="text" name="shop_name" class="input_data form-control" placeholder="Nhập cửa hàng cần tìm" value="{{name}}">
         <button type="submit" class="btn btn-outline-secondary">Search</button>
     </form>
+    
+    {{#if message}}
+        <p> {{message}} </p>
+    {{else}}
+    <div class="display display_shop">
+        {{#each shop}}
+        <a href="/shopinfo?shopid={{id}}&page=1&limit=6" class="display_block">
+            <div class="block_name">
+                <div class="brand_name">{{shop_name}}</div>
+            </div>
 
+            <div class="block_info">
+                <div class="content content_shop_owner">
+                    <div class="content_label">Owner:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{owner}}</div>
+                </div>
 
+                <div class="content content_shop_address">
+                    <div class="content_label">Address:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{shop_address}}</div>
+                </div>
+
+                <div class="content content_shop_laptop">
+                    <div class="content_label">Laptops:&nbsp;&nbsp;</div>
+                    <div class="content_data">{{amount}}</div>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+    {{/if}}
 </div>

@@ -153,7 +153,7 @@ function Range_Page_List(page,limit,list){
 }
 
 
-class shop_search{
+class shop__search{
     Random_Laptop = async (req,res) => {
         const { page, limit, next, back } = req.query
         const type = "laptop"
@@ -189,7 +189,7 @@ class shop_search{
         }    
     }
 
-    Random_component = async (req,res) => {
+    Random_Component = async (req,res) => {
         const { page, limit, next, back } = req.query
         const type = ['ram', 'cPU', 'gPU']
         // Xử lí kiểu dữ liệu
@@ -241,6 +241,44 @@ class shop_search{
         }
     }
 
+    Random_Shop = async (req,res) => {
+        try{
+            const shop_list = await prisma.shop.findMany({
+                select: {
+                    id: true,
+                    shop_name: true,
+                    shop_address: true,
+                    user: {
+                        select: {
+                            username: true
+                    }},
+                    _count: {
+                        select:{
+                            laptops: true
+                    }}
+                }
+            })
+
+            const shop = shop_list.map(shop => ({
+                id: shop.id,
+                shop_name: shop.shop_name,
+                shop_address: shop.shop_address,
+                owner: shop.user.username,
+                amount: shop._count.laptops
+            }))
+
+            console.log("")
+            console.log("")
+            console.log("Thành công lấy danh sách shop")
+            return res.render('search_pages/search_shop', {shop:shop})
+
+        } catch (err) {
+            console.error("Error_random_shop: ", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }
+    }
+
+    
     Post_Laptop_Name (req, res) {
         const {laptop_name} = req.body
         req.session.last_search_name = laptop_name
@@ -266,6 +304,14 @@ class shop_search{
 
         return res.redirect('/laptopcomponent?page=1&limit=6')
     }
+
+    Post_Shop_Name (req,res) {
+        const {shop_name} = req.body
+        req.session.last_search_name = shop_name
+
+        return res.redirect('/searchshop')
+    }
+
 
     Search_Laptop_Name = async (req,res) => {
         const name = req.session.last_search_name
@@ -318,7 +364,7 @@ class shop_search{
             return res.render('search_pages/search_laptop', Data)
                   
         } catch (err) {
-            console.error("Lỗi Server 500 chi tiết:", err)
+            console.error("Error_search_laptop_name: ", err)
             return res.status(500).json({ message: "Server error! Please do it again" })
         }
     }
@@ -386,7 +432,7 @@ class shop_search{
             return res.render('search_pages/search_component', Data)
 
         } catch (err) {
-            console.error("Lỗi Server 500 chi tiết:", err)
+            console.error("Error_search_component: ", err)
             return res.status(500).json({ message: "Server error! Please do it again" })
         }
     }
@@ -520,14 +566,73 @@ class shop_search{
             return res.render('search_pages/search_laptop', Data)
 
         } catch (err) {
-            console.error("Lỗi Server 500 chi tiết:", err)
+            console.error("Error_search_laptop_component: ", err)
             return res.status(500).json({ message: "Server error! Please do it again" })
         }
     }
 
+    Search_Shop_Name = async (req,res) => {
+        const name = req.session.last_search_name
+        let message
 
+        if (!name) {
+            return res.redirect(`/shop`)
+        }
 
+        try{
+            const shop_list = await prisma.shop.findMany({
+                where: {
+                    shop_name: {
+                        contains: name
+                }},
+                select: {
+                    id: true,
+                    shop_name: true,
+                    shop_address: true,
+                    user: {
+                        select: {
+                            username: true
+                    }},
+                    _count: {
+                        select:{
+                            laptops: true
+                    }} 
+                }
+            })
+
+            if (shop_list.length == 0) {
+                message = "Không tìm thấy"
+            }
+
+            const shop = shop_list.map(shop => ({
+                id: shop.id,
+                shop_name: shop.shop_name,
+                shop_address: shop.shop_address,
+                owner: shop.user.username,
+                amount: shop._count.laptops
+            }))
+
+            const Data = {
+                shop,
+                name
+            }
+            
+            console.log('')
+            console.log('')
+            console.log('Đã lấy thành công shop', Data)
+            return res.render('search_pages/search_shop', Data)
+
+        } catch (err) {
+            console.error("Error_search_shop: ", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }    
+    }
+    
 }
 
 
-module.exports = new shop_search
+module.exports = {
+    shop__search,
+    Paginate_Data_List,
+    Range_Page_List
+}
