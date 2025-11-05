@@ -252,6 +252,11 @@
     margin: 20px 30px;
 }
 
+.upload .upload_data_input[readonly] {
+    opacity: 0.8;
+    cursor: default;
+}
+
 .upload .upload_data_label{
     font-size: 15px;
     font-weight: 500;

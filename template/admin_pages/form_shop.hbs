@@ -17,7 +17,14 @@
 
             <div class="upload_data">
                 <span class="upload_data_label">Owner:</span>
-                <input type="text" name="username" class="upload_data_input" value="{{shop.user.username}}">
+                <input type="text" name="username" class="upload_data_input"  
+                {{#if_us user.role 'admin'}}
+                    value="{{shop.user.username}}"
+                {{/if_us}}
+                {{#if_us user.role 'staff'}}
+                    value="{{user.username}}"
+                    readonly
+                {{/if_us}}>
             </div>
 
             <button type="submit" class="upload_btn">{{#if isUpdating}}Update{{else}}Create{{/if}}</button>

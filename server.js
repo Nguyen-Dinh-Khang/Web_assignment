@@ -64,8 +64,10 @@ app.use(async (req, res, next) => {
           username: true,
           role: true,
           shop: {
-            select: {id: true}
-          }
+            select: {
+              id: true,
+              shop_name: true
+          }}
         }})
       
       res.locals.user = user

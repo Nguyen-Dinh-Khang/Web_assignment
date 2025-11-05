@@ -29,7 +29,11 @@
                 <div class="upload_data">
                     <span class="upload_data_label">Manufacturer:</span>
                     <select name="manufacturer" class="upload_data_input">
-                        <option>{{gpu.manufacturer}}</option>
+                        {{#if_us gpu.manufacturer "Intel_Arc"}}
+                            <option value="Intel_Arc">Intel Arc</option>
+                        {{else}}
+                            <option>{{gpu.manufacturer}}</option>
+                        {{/if_us}}
                         <option>NVIDIA</option>
                         <option>AMD</option>
                         <option value="Intel_Arc">Intel Arc</option>

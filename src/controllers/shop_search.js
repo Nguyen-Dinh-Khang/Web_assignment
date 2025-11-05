@@ -290,7 +290,7 @@ class shop__search{
         const {component_name} = req.body
         req.session.last_search_name = component_name
 
-        return res.redirect('/searchcomponent?page=1&page=1&page=1&limit=1')
+        return res.redirect('/searchcomponent?page=1&page=1&page=1&limit=3')
     }
 
     Post_Laptop_Component (req,res) {
@@ -382,7 +382,7 @@ class shop__search{
         
 
         if (!name) {
-            return res.redirect('/component?page=1&page=1&page=1&limit=1')
+            return res.redirect('/component?page=1&page=1&page=1&limit=3')
         }
 
         const indexdata = next || back
@@ -613,6 +613,7 @@ class shop__search{
             }))
 
             const Data = {
+                message,
                 shop,
                 name
             }

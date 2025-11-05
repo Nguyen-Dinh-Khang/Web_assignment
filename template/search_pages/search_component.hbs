@@ -53,19 +53,19 @@
     <footer class="nav_page nav_page_component">
         <ul class="pagination">
             <li class="page-item {{#if range_page.ram.min}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=1">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&back=1">
                     <span>«</span>
                 </a>
             </li>
 
             {{#each range_page.ram.range}}
             <li class="page-item {{#if_eq . ../current_page_ram}}active{{/if_eq}}">
-                <a class="page-link" href="?page={{.}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}&limit=1">{{.}}</a>
+                <a class="page-link" href="?page={{.}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}&limit=3">{{.}}</a>
             </li>
             {{/each}}
 
             <li class="page-item {{#if range_page.ram.max}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=1">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&next=1">
                     <span>»</span>
                 </a>
             </li>
@@ -115,19 +115,19 @@
     <footer class="nav_page nav_page_component">
         <ul class="pagination">
             <li class="page-item {{#if range_page.cPU.min}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=2">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&back=2">
                     <span>«</span>
                 </a>
             </li>
 
             {{#each range_page.cPU.range}}
             <li class="page-item {{#if_eq . ../current_page_cpu}}active{{/if_eq}}">
-                <a class="page-link" href="?page={{../current_page_ram}}&page={{.}}&page={{../current_page_gpu}}&limit=1">{{.}}</a>
+                <a class="page-link" href="?page={{../current_page_ram}}&page={{.}}&page={{../current_page_gpu}}&limit=3">{{.}}</a>
             </li>
             {{/each}}
 
             <li class="page-item {{#if range_page.cPU.max}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=2">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&next=2">
                     <span>»</span>
                 </a>
             </li>
@@ -179,19 +179,19 @@
     <footer class="nav_page nav_page_component">
         <ul class="pagination">
             <li class="page-item {{#if range_page.gPU.min}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&back=3">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&back=3">
                     <span>«</span>
                 </a>
             </li>
 
             {{#each range_page.gPU.range}}
             <li class="page-item {{#if_eq . ../current_page_gpu}}active{{/if_eq}}">
-                <a class="page-link" href="?page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{.}}&limit=1">{{.}}</a>
+                <a class="page-link" href="?page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{.}}&limit=3">{{.}}</a>
             </li>
             {{/each}}
 
             <li class="page-item {{#if range_page.gPU.max}}disabled{{/if}}">
-                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=1&next=3">
+                <a class="page-link" href="?page={{current_page_ram}}&page={{current_page_cpu}}&page={{current_page_gpu}}&limit=3&next=3">
                     <span>»</span>
                 </a>
             </li>

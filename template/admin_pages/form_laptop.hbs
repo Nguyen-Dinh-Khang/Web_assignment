@@ -65,7 +65,14 @@
 
             <div class="upload_data">
                 <span class="upload_data_label">Shop:</span>
-                <input type="text" name="shop_name" class="upload_data_input" value="{{laptop.shop.shop_name}}">
+                <input type="text" name="shop_name" class="upload_data_input"
+                {{#if_us user.role 'admin'}}
+                    value="{{laptop.shop.shop_name}}"
+                {{/if_us}}
+                {{#if_us user.role 'staff'}}
+                    value="{{user.shop.shop_name}}"
+                    readonly
+                {{/if_us}}>
             </div>
         </div>
 
