@@ -11,11 +11,19 @@ class shop_upload{
     }
 
     Upload_Laptop_Form(req, res){
-        res.render('admin_pages/form_laptop', { 
-            layout: 'admin',
-            isUpdating: false,
-            actionPath: '/uploadlaptop' 
-        })
+        const {is_staff} = req.query
+        if (is_staff) {
+            res.render('admin_pages/form_laptop', { 
+                isUpdating: false,
+                actionPath: '/uploadlaptop' 
+            })
+        } else {
+            res.render('admin_pages/form_laptop', { 
+                layout: 'admin',
+                isUpdating: false,
+                actionPath: '/uploadlaptop' 
+            })
+        }
     }
 
     Upload_Ram_Form(req, res){

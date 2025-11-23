@@ -8,7 +8,7 @@
                 <span class="address">{{shop_address}}</span>
             </div>
         </div>
-        <div class="info_shop_right update_block">
+        <div class="shop_info_right update_block">
             {{#if user}}
                 {{#if_us user.role 'admin'}}
                 <a href="/updateshop?shopid={{id}}" class="update_btn">
@@ -17,6 +17,9 @@
                 {{/if_us}}
                 {{#if_us user.role 'staff'}}
                     {{#if_eq user.shop.id id}}
+                    <a href="/uploadlaptop?is_staff=1" class="update_btn">
+                        <button class="mybtn">Add Laptop</button>
+                    </a>
                     <a href="/updateshop?shopid={{id}}" class="update_btn">
                         <button class="mybtn">Change</button>   
                     </a>

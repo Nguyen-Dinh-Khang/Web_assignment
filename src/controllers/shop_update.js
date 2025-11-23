@@ -421,6 +421,29 @@ class shop_update{
             return res.status(500).json({ message: "Server error! Please do it again" })
         }  
     }
+
+    Delete_Laptop = async (req,res) => {
+        const { laptopid } = req.query
+        const id = parseInt(laptopid, 10)
+
+        try{
+            const laptop = await prisma.laptop.findUnique({ where: {id} })
+            
+            const delete_laptop = await prisma.laptop.delete({
+                where: {id}
+            })
+
+            const img_path = path.join(__dirname,'..','..',laptop.laptop_img)
+            if (fs.existsSync(img_path)) {
+                fs.unlinkSync(img_path)
+            }
+            return res.redirect("/")
+
+        } catch (err) {
+            console.error("Delete_Laptop error:", err)
+            return res.status(500).json({ message: "Server error! Please do it again" })
+        }
+    }
 }
 
 

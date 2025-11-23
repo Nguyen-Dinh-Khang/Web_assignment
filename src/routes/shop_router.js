@@ -51,6 +51,7 @@ router.get('/updatecpu', shop_update.Update_Cpu_Form)
 router.post('/updatecpu/:id', uploadMiddleware.upload_cpu, shop_update.Update_Cpu)
 router.get('/updategpu', shop_update.Update_Gpu_Form)
 router.post('/updategpu/:id', uploadMiddleware.upload_gpu, shop_update.Update_Gpu)
+router.get('/deletelaptop', shop_update.Delete_Laptop)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //---------Đăng nhập-------------------------------------------------------------------------------------------------------------------------------
 router.get('/signup', shop_controller.Sign_Up_Form)

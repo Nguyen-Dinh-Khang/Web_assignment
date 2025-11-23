@@ -117,7 +117,6 @@
 /* Update btn */
 .info .update_block{
     width: 60%;
-    height: 20px;
     margin-top: 5px;
 }
 
@@ -127,7 +126,18 @@
     justify-content: end;
 }
 
+.info .update_block .delete_btn{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.info .update_block .update_btn:first-child{
+    margin-bottom: 5px;
+}
+
 .info .update_block .mybtn{
+    width: 100px;
     padding: 3px 6px;
     border-radius: 10px;
 }

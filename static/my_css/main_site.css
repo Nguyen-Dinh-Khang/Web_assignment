@@ -220,7 +220,7 @@
 
 /* Upload chung */
 .upload {
-    height: 618px;
+    height: 609px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -267,7 +267,8 @@
     margin: 5px 0px 0px 550px;
 }
 
-.upload .upload_btn:hover{
+.upload .upload_btn:hover,
+.upload .delete_btn:hover{
     opacity: 0.7;
 }
 

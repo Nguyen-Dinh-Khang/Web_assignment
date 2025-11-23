@@ -77,10 +77,16 @@
             <a href="/updatelaptop?laptopid={{id}}" class="update_btn">
                 <button class="mybtn">Update</button>
             </a>
+            <a href="/deletelaptop?laptopid={{id}}" class="delete_btn">
+                <button class="mybtn">Delete</button>
+            </a>
             {{/if_us}}
             {{#if_eq user.shop.id shop.id}}
             <a href="/updatelaptop?laptopid={{id}}" class="update_btn">
                 <button class="mybtn">Update</button>
+            </a>
+            <a href="/deletelaptop?laptopid={{id}}" class="delete_btn">
+                <button class="mybtn">Delete</button>
             </a>
             {{/if_eq}}
         {{/if}}
