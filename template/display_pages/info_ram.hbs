@@ -1,7 +1,11 @@
 <div class="info info_component">
+     <div class="btn_out">    
+        <a href="/component?page={{page.[0]}}&page={{page.[1]}}&page={{page.[2]}}&limit=3" class="btn_close">X</a>
+    </div>
+    
     <div class="info_block">
         <div class="info_img">
-            <img src="{{ram_img}}" alt="Error" class="img">
+            <img src="{{component.ram_img}}" alt="Error" class="img">
         </div>
 
         <div class="info_content">
@@ -13,12 +17,12 @@
                 <div class="content_block content_main_left">
                     <div class="content content_name">
                         <div class="content_label">Name:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{ram_name}}</div>
+                        <div class="content_data">{{component.ram_name}}</div>
                     </div>
 
                     <div class="content content_capacity">
                         <div class="content_label">Capacity:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{capacity}}&nbsp;GB</div>
+                        <div class="content_data">{{component.capacity}}&nbsp;GB</div>
                     </div>
                 </div>
 
@@ -27,12 +31,12 @@
                 <div class="content_block content_main_right">
                     <div class="content content_speed">
                         <div class="content_label">Speed:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{speed}}&nbsp;MHz</div>
+                        <div class="content_data">{{component.speed}}&nbsp;MHz</div>
                     </div>
 
                     <div class="content content_type">
                         <div class="content_label">Type:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{type}}</div>
+                        <div class="content_data">{{component.type}}</div>
                     </div>
                 </div>
             </div>
@@ -40,7 +44,7 @@
             <div class="info_content_footer">
                 <div class="content">
                     <div class="content_label">Manufacturer:&nbsp;&nbsp;</div>
-                    <div class="content_data">{{manufacturer}}</div>
+                    <div class="content_data">{{component.manufacturer}}</div>
                 </div>
             </div>
         </div>
@@ -49,7 +53,7 @@
     <div class="update_block">
         {{#if user}}
             {{#if_us user.role 'admin'}}
-            <a href="/updateram?ramid={{id}}" class="update_btn">
+            <a href="/updateram?ramid={{component.id}}" class="update_btn">
                 <button class="mybtn">Update</button>
             </a>
             {{/if_us}}

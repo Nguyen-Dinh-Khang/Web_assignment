@@ -1,7 +1,11 @@
 <div class="info info_component">
+    <div class="btn_out">    
+        <a href="/component?page={{page.[0]}}&page={{page.[1]}}&page={{page.[2]}}&limit=3" class="btn_close">X</a>
+    </div>
+
     <div class="info_block">
         <div class="info_img">
-            <img src="{{gpu_img}}" alt="Error" class="img">
+            <img src="{{component.gpu_img}}" alt="Error" class="img">
         </div>
 
         <div class="info_content">
@@ -13,12 +17,12 @@
                 <div class="content_block content_main_left">
                     <div class="content">
                         <div class="content_label">Name:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{gpu_name}}</div>
+                        <div class="content_data">{{component.gpu_name}}</div>
                     </div>
 
                     <div class="content">
                         <div class="content_label">Vram:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{vram}}</div>
+                        <div class="content_data">{{component.vram}}</div>
                     </div>
                 </div>
 
@@ -27,7 +31,7 @@
                 <div class="content_block content_main_right">
                     <div class="content">
                         <div class="content_label">ClockSpeed:&nbsp;&nbsp;</div>
-                        <div class="content_data">{{clockSpeed}}&nbsp;GHz</div>
+                        <div class="content_data">{{component.clockSpeed}}&nbsp;GHz</div>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@
             <div class="info_content_footer">
                 <div class="content">
                     <div class="content_label">Manufacturer:&nbsp;&nbsp;</div>
-                    <div class="content_data">{{manufacturer}}</div>
+                    <div class="content_data">{{component.manufacturer}}</div>
                 </div>
             </div>
         </div>
@@ -44,7 +48,7 @@
     <div class="update_block">
         {{#if user}}
             {{#if_us user.role 'admin'}}
-            <a href="/updategpu?gpuid={{id}}" class="update_btn">
+            <a href="/updategpu?gpuid={{component.id}}" class="update_btn">
                 <button class="mybtn">Update</button>
             </a>
             {{/if_us}}

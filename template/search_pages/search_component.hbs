@@ -16,7 +16,7 @@
         {{#each list.ram}}
         <div class="display_block">
             <div class="display_img">
-                <a href="/componentinfo?componentid={{id}}&type=ram" class="device_link">
+                <a href="/componentinfo?componentid={{id}}&type=ram&page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}" class="device_link">
                 <img src={{ram_img}} class="img">
                 </a>
             </div>
@@ -85,7 +85,7 @@
         {{#each list.cPU}}
         <div class="display_block">
             <div class="display_img">
-                <a href="/componentinfo?componentid={{id}}&type=cPU" class="device_link">
+                <a href="/componentinfo?componentid={{id}}&type=cPU&page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}" class="device_link">
                 <img src={{cpu_img}} class="img">
                 </a>
             </div>
@@ -147,7 +147,7 @@
         {{#each list.gPU}}
         <div class="display_block">
             <div class="display_img">
-                <a href="/componentinfo?componentid={{id}}&type=gPU" class="device_link">
+                <a href="/componentinfo?componentid={{id}}&type=gPU&page={{../current_page_ram}}&page={{../current_page_cpu}}&page={{../current_page_gpu}}" class="device_link">
                 <img src={{gpu_img}} class="img">
                 </a>
             </div>

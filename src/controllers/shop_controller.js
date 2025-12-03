@@ -85,7 +85,7 @@ class shop {
 
     // Hiển thị thông tin
     Info_Laptop = async (req,res) => {
-        const {laptopid} = req.query
+        const {laptopid, page, shopid, in_sort, in_search} = req.query
         const id = parseInt(laptopid,10)
 
         try{
@@ -93,10 +93,18 @@ class shop {
                 where: {id},
                 include: {shop:true}
             })
+
+            const Data = {
+                laptop,
+                page,
+                shopid,
+                in_sort,
+                in_search
+            }
             console.log('')
             console.log('')
-            console.log(laptop)
-            return res.render('display_pages/info_laptop', laptop)
+            console.log(Data.laptop)
+            return res.render('display_pages/info_laptop', Data)
 
         } catch (err) {
             console.error("Lỗi Server 500 chi tiết:", err)
@@ -105,23 +113,29 @@ class shop {
     }
 
     Info_Component = async (req,res) => {
-        const {componentid, type} = req.query
+        const {componentid, type, page} = req.query
         const id = parseInt(componentid, 10)
 
         try{
             const component = await prisma[type].findUnique({
                 where: {id}
             })
+
+            const Data = {
+                component,
+                page
+            }
+
             console.log('')
             console.log('')
-            console.log(component)
+            console.log(Data.component)
 
             if (type === "cPU") {
-                return res.render("display_pages/info_cpu", component)
+                return res.render("display_pages/info_cpu", Data)
             } else if (type === "gPU") {
-                return res.render("display_pages/info_gpu", component)
+                return res.render("display_pages/info_gpu", Data)
             } else if (type === "ram") {
-                return res.render("display_pages/info_ram", component)
+                return res.render("display_pages/info_ram", Data)
             }
 
         } catch (err) {

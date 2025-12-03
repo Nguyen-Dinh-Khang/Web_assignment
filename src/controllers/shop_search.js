@@ -159,7 +159,7 @@ class shop__search{
         const type = "laptop"
         // Xử lí kiểu dữ liệu
         let current_page = parseInt(page, 10)  || 1
-        let limitInt = parseInt(limit, 10) || 15
+        let limitInt = parseInt(limit, 10) || 6
         
         if (next) {
             current_page += 1
@@ -176,7 +176,7 @@ class shop__search{
 
             const Data = {
                 list,
-                current_page: current_page,
+                current_page,
                 range_page
             }
             console.log("4: Đã tạo xong data")
@@ -190,6 +190,7 @@ class shop__search{
     }
 
     Random_Component = async (req,res) => {
+        console.log(req.query)
         const { page, limit, next, back } = req.query
         const type = ['ram', 'cPU', 'gPU']
         // Xử lí kiểu dữ liệu
@@ -357,7 +358,8 @@ class shop__search{
                 laptop_name: name,
                 list,
                 current_page,
-                range_page
+                range_page,
+                in_search: current_page
             }
             console.log("4: Đã tạo xong data")
             console.log('Trang:', current_page, '  giới hạn:', limitInt, '  phạm vi:',  range_page)
@@ -453,8 +455,8 @@ class shop__search{
         battery = battery.trim().replaceAll(/\s+/g, '')
         price = price.trim().replaceAll(/\s+/g, '')
         // Xử lí kiểu
-        price = parseInt(price,10) || 0
-        battery = parseInt(battery, 10) || 0
+        price = parseInt(price,10) || ''
+        battery = parseInt(battery, 10)  || ''
         let current_page = parseInt(page,10)
         let limitInt = parseInt(limit,10)
         // Khai báo biến
@@ -559,7 +561,8 @@ class shop__search{
                 price,
                 list,
                 current_page,
-                range_page
+                range_page,
+                in_sort: current_page,
             }
             console.log("4: Đã tạo xong data")
             console.log('Trang:', current_page, '  giới hạn:', limitInt, '  phạm vi:',  range_page)
