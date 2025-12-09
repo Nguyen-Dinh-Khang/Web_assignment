@@ -84,7 +84,8 @@ class shop_upload{
                     shop_address,
                     user_id: existinguser.id
             }})
-            return res.status(201).json({ message: "Shop created successfully", shop: newshop })
+            // return res.status(201).json({ message: "Shop created successfully", shop: newshop })
+            res.redirect('/uploadshop')
 
         } catch (err) {
             console.error("Upload_Shop error:", err)
@@ -139,7 +140,8 @@ class shop_upload{
                     price: priceInt,
                     shop_id: existingshop.id
             }})
-            return res.status(201).json({ message: "Laptop created successfully", laptop: newlaptop })
+            // return res.status(201).json({ message: "Laptop created successfully", laptop: newlaptop })
+            res.redirect('/uploadlaptop')
 
         } catch (err) {
             console.error('Upload_Laptop error:', err)
@@ -182,7 +184,8 @@ class shop_upload{
                    type,
                    manufacturer,
             }})
-            return res.status(201).json({ message: "Ram created successfully", ram: newram })
+            // return res.status(201).json({ message: "Ram created successfully", ram: newram })
+            res.redirect('/uploadram')
 
         } catch (err) {
             console.error('Upload_Ram error:', err)
@@ -227,7 +230,8 @@ class shop_upload{
                     boostClock: boostClockFloat,
                     manufacturer
             }})
-            return res.status(201).json({ message: "Cpu created successfully", cpu: newcpu })
+            // return res.status(201).json({ message: "Cpu created successfully", cpu: newcpu })
+            res.redirect('/uploadcpu')
 
         } catch (err) {
             console.error('Upload_cpu error:', err)
@@ -270,7 +274,8 @@ class shop_upload{
                     clockSpeed: clockSpeedFloat,
                     manufacturer
             }})
-            return res.status(201).json({ message: "Gpu created successfully", gpu: newgpu })
+            // return res.status(201).json({ message: "Gpu created successfully", gpu: newgpu })
+            res.redirect('/uploadgpu')
 
         } catch (err) {
             console.error('Upload_Gpu error:', err)

@@ -9,6 +9,19 @@ class shop {
         res.render('home')
     }
 
+    Session = (req, res) => {
+        if (req.session && req.session.userId) {
+            return res.json({ 
+                id: String(req.session.userId)
+            });
+        } else {
+            return res.status(401).json({ 
+                id: null, 
+                message: "Unauthorized" 
+            });
+        }
+    }
+
     Admin_Site(req,res){
         res.render('admin_pages/admin_site', { layout: 'admin' })
     }

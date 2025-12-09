@@ -202,7 +202,8 @@ class shop_update{
                     price: priceInt,
                     shop_id: existingshop.id
             }})
-            return res.status(200).json({ message: "Laptop updating successfully", laptop: newlaptop })
+            // return res.status(200).json({ message: "Laptop updating successfully", laptop: newlaptop })
+            res.redirect('/laptop?page=1&limit=6')
 
         } catch (err) {
             console.error('Update_Laptop error:', err)
@@ -257,7 +258,8 @@ class shop_update{
                    type,
                    manufacturer,
             }})
-            return res.status(201).json({ message: "Ram created successfully", ram: newram })
+            // return res.status(201).json({ message: "Ram created successfully", ram: newram })
+            res.redirect('/component?page=1&page=1&page=1&limit=3')
 
         } catch (err) {
             console.error('Update_Ram error:', err)
@@ -315,7 +317,8 @@ class shop_update{
                     boostClock: boostClockFloat,
                     manufacturer
             }})
-            return res.status(201).json({ message: "Cpu created successfully", cpu: newcpu })
+            // return res.status(201).json({ message: "Cpu created successfully", cpu: newcpu })
+            res.redirect('/component?page=1&page=1&page=1&limit=3')
 
         } catch (err) {
             console.error('Upload_cpu error:', err)
@@ -371,7 +374,8 @@ class shop_update{
                     clockSpeed: clockSpeedFloat,
                     manufacturer
             }})
-            return res.status(201).json({ message: "Gpu created successfully", gpu: newgpu })
+            // return res.status(201).json({ message: "Gpu created successfully", gpu: newgpu })
+            res.redirect('/component?page=1&page=1&page=1&limit=3')
 
         } catch (err) {
             console.error('Upload_Gpu error:', err)
@@ -401,11 +405,6 @@ class shop_update{
                 return res.status(404).json({ message: "User not found!" })
             }
 
-            const shopowner = await prisma.shop.findUnique({ where: { user_id: existinguser.id } })
-            if (shopowner){
-                return res.status(409).json({ message: "This user already has a shop!" })
-            }
-
 
             const newshop = await prisma.shop.update({
                 where: {id},
@@ -414,7 +413,8 @@ class shop_update{
                     shop_address,
                     user_id: existinguser.id
             }})
-            return res.status(201).json({ message: "Shop created successfully", shop: newshop })
+            // return res.status(201).json({ message: "Shop created successfully", shop: newshop })
+            return res.redirect(`/shopinfo?shopid=${id}&page=1&limit=6`)
 
         } catch (err) {
             console.error("Update_Shop error:", err)
@@ -437,7 +437,7 @@ class shop_update{
             if (fs.existsSync(img_path)) {
                 fs.unlinkSync(img_path)
             }
-            return res.redirect("/")
+            return res.redirect("/laptop")
 
         } catch (err) {
             console.error("Delete_Laptop error:", err)

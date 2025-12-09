@@ -67,6 +67,7 @@ router.get('/adminsite', shop_controller.Admin_Site)
 router.get('/staffsite', shop_controller.Staff_Site)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //---------Trang chủ-------------------------------------------------------------------------------------------------------------------------------
+router.get('/api/whoami', shop_controller.Session)
 router.use('/', shop_controller.Home)
 
 
