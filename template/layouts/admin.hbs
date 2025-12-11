@@ -75,8 +75,8 @@
 
 <div class="container-fluid" style="margin-top: 120px;">
 <div class="admin">
+    {{#if_us user.role 'admin'}}
     <div class="col-1 function">
-        {{#if_us user.role 'admin'}}
         <ul class="function__list">
             <li class="function__update">
                 <span class="update__text">Upload:</span>
@@ -89,8 +89,8 @@
                 </ul>
             </li>
         </ul>
-        {{/if_us}}
     </div>
+    {{/if_us}}
     <div class="col-11 show">
         
         {{{body}}}
